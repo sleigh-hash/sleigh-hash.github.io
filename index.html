@@ -1,0 +1,397 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Portfolio of Jonalyn Rosell: about me, skills, projects and certificates.">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Jonalyn Rosell</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+  /* Layout: neon night-city travel journal — one centered column; deliberately dark-only */
+  :root {
+    --bg: #07060f;
+    --surface: #110f22;
+    --ink: #f2f0ff;
+    --muted: #a9a4c9;
+    --line: #2a2550;
+    --pink: #ff2fd1;
+    --cyan: #19f0ff;
+    --lime: #b6ff3b;
+    --violet: #8b5cff;
+    --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+    --font-body: "Figtree", "Segoe UI", system-ui, sans-serif;
+    --font-mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+    color-scheme: dark;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { animation: none !important; transition: none !important; } }
+  body {
+    background:
+      radial-gradient(60rem 30rem at 50% -10%, rgba(139,92,255,.28), transparent 70%),
+      radial-gradient(40rem 24rem at 100% 40%, rgba(255,47,209,.10), transparent 70%),
+      radial-gradient(40rem 24rem at 0% 75%, rgba(25,240,255,.08), transparent 70%),
+      var(--bg);
+    color: var(--ink);
+    font-family: var(--font-body); font-size: 1.0625rem; line-height: 1.65;
+    text-align: center;
+  }
+  .wrap {
+    max-width: 900px; margin: 0 auto;
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+    display: flex; flex-direction: column; align-items: center;
+  }
+  h1, h2, h3 { font-family: var(--font-display); line-height: 1.15; text-wrap: balance; margin: 0; }
+  p { margin: 0; }
+  a { color: var(--cyan); }
+  :focus-visible { outline: 3px solid var(--lime); outline-offset: 3px; border-radius: 6px; }
+
+  /* ---------- Hero ---------- */
+  .hero { padding-block: 4.5rem 3.5rem; position: relative; overflow: hidden; }
+  .hero::before {
+    /* neon grid floor */
+    content: ""; position: absolute; inset: 0; pointer-events: none;
+    background:
+      linear-gradient(var(--line) 1px, transparent 1px) 0 0 / 48px 48px,
+      linear-gradient(90deg, var(--line) 1px, transparent 1px) 0 0 / 48px 48px;
+    opacity: .45;
+    mask-image: radial-gradient(ellipse at 50% 60%, #000 20%, transparent 70%);
+  }
+  .hero .wrap { position: relative; gap: 1.25rem; }
+  .photo {
+    width: 184px; height: 184px; max-width: 100%; border-radius: 50%;
+    border: 4px solid var(--bg);
+    box-shadow: 0 0 0 3px var(--pink), 0 0 24px 4px rgba(255,47,209,.6), 0 0 60px 10px rgba(25,240,255,.25);
+    background: var(--surface); display: grid; place-items: center; overflow: hidden;
+    animation: pulse 4s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    50% { box-shadow: 0 0 0 3px var(--cyan), 0 0 28px 6px rgba(25,240,255,.6), 0 0 60px 10px rgba(255,47,209,.25); }
+  }
+  .photo img { width: 100%; height: 100%; object-fit: cover; }
+  .photo span { font-family: var(--font-display); font-weight: 800; font-size: 3.5rem; color: var(--cyan); text-shadow: 0 0 12px var(--cyan); }
+  .hello { font-size: clamp(2.2rem, 6vw, 3.6rem); font-weight: 800; letter-spacing: -.02em; }
+  .hello em {
+    font-style: normal; color: var(--pink);
+    text-shadow: 0 0 6px rgba(255,47,209,.9), 0 0 22px rgba(255,47,209,.6);
+  }
+  .tagline { max-width: 34rem; color: var(--muted); font-size: 1.15rem; }
+  .cta {
+    display: inline-flex; align-items: center; gap: .6rem; margin-top: .5rem;
+    padding: .85rem 1.5rem; border-radius: 999px; text-decoration: none;
+    border: 2px solid var(--cyan); color: var(--cyan); font-weight: 600;
+    box-shadow: 0 0 14px rgba(25,240,255,.45), inset 0 0 10px rgba(25,240,255,.2);
+    transition: transform .2s ease, background .2s ease, color .2s ease;
+  }
+  .cta:hover { transform: translateY(-2px); background: var(--cyan); color: var(--bg); }
+  .cta svg { width: 20px; height: 20px; }
+
+  /* ---------- Sections ---------- */
+  section.block { padding-block: 3.5rem; border-top: 1px solid var(--line); }
+  .eyebrow {
+    font-family: var(--font-mono); font-size: .78rem; letter-spacing: .16em; text-transform: uppercase;
+    color: var(--lime); margin-bottom: .5rem; display: block; text-shadow: 0 0 8px rgba(182,255,59,.5);
+  }
+  h2 {
+    font-size: clamp(1.7rem, 4vw, 2.3rem); font-weight: 700; letter-spacing: -.01em; margin-bottom: 1.75rem;
+    text-shadow: 0 0 18px rgba(139,92,255,.7);
+  }
+
+  .about-text { display: grid; gap: 1rem; max-width: 60ch; justify-items: center; }
+  .note {
+    border: 1.5px solid var(--pink); background: var(--surface); padding: 1rem 1.4rem; border-radius: 12px;
+    font-weight: 500; box-shadow: 0 0 16px rgba(255,47,209,.35);
+  }
+
+  .skills { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; width: 100%; }
+  .skill {
+    background: var(--surface); border: 1.5px solid var(--line); border-radius: 14px;
+    padding: 1.6rem 1.2rem; display: grid; gap: .75rem; justify-items: center; align-content: start;
+    transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+  }
+  .skill:nth-child(1) { --glow: var(--cyan); }
+  .skill:nth-child(2) { --glow: var(--pink); }
+  .skill:nth-child(3) { --glow: var(--lime); }
+  .skill:hover { transform: translateY(-4px); border-color: var(--glow); box-shadow: 0 0 22px -2px var(--glow); }
+  .badge {
+    width: 56px; height: 56px; border-radius: 12px; display: grid; place-items: center;
+    font-family: var(--font-mono); font-weight: 500; font-size: 1rem;
+    border: 1.5px solid var(--glow); color: var(--glow); box-shadow: 0 0 12px -2px var(--glow);
+  }
+  .skill h3 { font-size: 1.3rem; }
+  .skill p { color: var(--muted); font-size: .95rem; }
+
+  /* Project cards */
+  .projects { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; width: 100%; margin-bottom: 1.75rem; }
+  .project {
+    min-width: 0; padding: 1.6rem 1.3rem; display: grid; gap: .7rem; justify-items: center; align-content: start;
+    background: var(--surface); border: 1.5px solid var(--violet); border-radius: 16px;
+    box-shadow: 0 0 24px -6px rgba(139,92,255,.6);
+    transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+  }
+  .project:hover { transform: translateY(-4px); border-color: var(--pink); box-shadow: 0 0 26px -4px rgba(255,47,209,.6); }
+  .project h3 { font-size: 1.25rem; }
+  .project p { color: var(--muted); max-width: 40ch; }
+  .project-tag {
+    font-family: var(--font-mono); font-size: .72rem; letter-spacing: .12em; text-transform: uppercase;
+    color: var(--lime); border: 1px solid var(--lime); border-radius: 999px; padding: .2rem .7rem;
+  }
+  .gh-btn {
+    display: inline-flex; align-items: center; gap: .55rem; padding: .8rem 1.4rem; border-radius: 999px;
+    background: var(--pink); color: var(--bg); text-decoration: none; font-weight: 600;
+    box-shadow: 0 0 18px rgba(255,47,209,.6);
+    transition: transform .2s ease;
+  }
+  .gh-btn:hover { transform: translateY(-2px); }
+  .gh-btn svg { width: 20px; height: 20px; fill: currentColor; }
+
+  /* Passport-stamp certificates */
+  .certs { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; width: 100%; max-width: 760px; }
+  .stamp {
+    min-width: 0; padding: 1rem; display: grid; gap: .35rem;
+    justify-items: center; align-content: start; color: var(--cyan);
+    border: 2px solid var(--cyan); border-radius: 14px; background: var(--surface);
+    box-shadow: 0 0 18px -4px rgba(25,240,255,.6);
+  }
+  .stamp h3 { font-size: .98rem !important; }
+  .stamp p { font-size: .85rem !important; }
+  .stamp.empty {
+    border: 2px dashed var(--line); box-shadow: none; background: transparent;
+    align-content: center; min-height: 220px; color: var(--muted);
+  }
+  .slot-icon {
+    width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center;
+    border: 2px dashed var(--line); font-size: 1.4rem; line-height: 1;
+  }
+  .cert-img {
+    display: block; width: 100%; margin-bottom: .6rem; border-radius: 10px; overflow: hidden;
+    border: 1.5px solid var(--line); transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease;
+  }
+  .cert-img:hover { border-color: var(--pink); box-shadow: 0 0 18px -2px var(--pink); transform: translateY(-2px); }
+  .cert-img img { display: block; width: 100%; aspect-ratio: 3 / 2; object-fit: contain; background: #fff; }
+  .cert-img { cursor: zoom-in; }
+
+  /* Certificate viewer */
+  .viewer {
+    border: 0; padding: 0; margin: auto; background: transparent; color: var(--ink);
+    width: min(1100px, 100vw); max-width: 100vw; max-height: 100vh; overflow: visible;
+  }
+  .viewer::backdrop { background: rgba(7,6,15,.88); backdrop-filter: blur(6px); }
+  .viewer[open] { animation: pop .2s ease-out; }
+  @keyframes pop { from { opacity: 0; transform: scale(.96); } }
+  .viewer-inner {
+    display: grid; gap: .9rem; justify-items: center;
+    padding: max(16px, env(safe-area-inset-top, 0px)) max(16px, env(safe-area-inset-right, 0px)) max(16px, env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px));
+  }
+  .viewer-img {
+    display: block; max-width: 100%; max-height: 72vh; width: auto; height: auto;
+    border-radius: 10px; background: #fff;
+    border: 2px solid var(--cyan); box-shadow: 0 0 34px -4px rgba(25,240,255,.7);
+  }
+  .viewer-caption { display: grid; gap: .2rem; max-width: 60ch; }
+  .viewer-caption h3 { font-size: 1.15rem; }
+  .viewer-caption span { font-family: var(--font-mono); font-size: .75rem; letter-spacing: .1em; text-transform: uppercase; color: var(--cyan); }
+  .viewer-controls { display: flex; gap: .75rem; align-items: center; justify-content: center; flex-wrap: wrap; }
+  .viewer-btn {
+    font: inherit; font-weight: 600; cursor: pointer; padding: .6rem 1.1rem; border-radius: 999px;
+    background: var(--surface); color: var(--ink); border: 1.5px solid var(--line);
+    transition: border-color .2s ease, box-shadow .2s ease;
+  }
+  .viewer-btn:hover { border-color: var(--pink); box-shadow: 0 0 14px -2px var(--pink); }
+  .viewer-btn.close { border-color: var(--pink); color: var(--pink); }
+  .viewer-count { font-family: var(--font-mono); font-size: .85rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+  .stamp h3 { font-size: 1.1rem; color: var(--ink); }
+  .stamp .issuer { font-family: var(--font-mono); font-size: .75rem; letter-spacing: .1em; text-transform: uppercase; }
+  .stamp p { color: var(--muted); font-size: .92rem; }
+
+  footer { padding-block: 2.5rem; border-top: 1px solid var(--line); color: var(--muted); font-size: .9rem; }
+
+  @media (max-width: 720px) {
+    .skills, .certs, .projects { grid-template-columns: 1fr; }
+    .certs { max-width: 340px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="photo">
+      <img src="photo.jpg" alt="Jonalyn Rosell by the sea at sunset" style="object-position: 50% 30%">
+    </div>
+    <h1 class="hello">Hi, I'm <em>Jonalyn Rosell</em></h1>
+    <p class="tagline">A human being that wants to have a good future and a stable job where it can sustain my needs and support my tour around the world.</p>
+    <a class="cta" href="#work">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M3 13h18"/></svg>
+      View My Work
+    </a>
+  </div>
+</header>
+
+<main>
+  <section class="block" id="about">
+    <div class="wrap">
+      <span class="eyebrow">Who I am</span>
+      <h2>About Me</h2>
+      <div class="about-text">
+        <p>I'm Jonalyn, a student learning how to build things with code. I've been working with Python, Java and JavaScript, and I put my practice projects up on GitHub as I go.</p>
+        <p>My goal is simple: grow my skills, land a stable job, and use it to see as much of the world as I can.</p>
+        <p class="note">I'm a student who's into scrolling FB and watches some philosophic reels.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="skills">
+    <div class="wrap">
+      <span class="eyebrow">What I work with</span>
+      <h2>My Skills</h2>
+      <div class="skills">
+        <article class="skill">
+          <div class="badge" aria-hidden="true">.py</div>
+          <h3>Python</h3>
+          <p>Scripts, logic and problem solving.</p>
+        </article>
+        <article class="skill">
+          <div class="badge" aria-hidden="true">.java</div>
+          <h3>Java</h3>
+          <p>Object-oriented programming and classes.</p>
+        </article>
+        <article class="skill">
+          <div class="badge" aria-hidden="true">.js</div>
+          <h3>JavaScript</h3>
+          <p>Making web pages interactive.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="work">
+    <div class="wrap">
+      <span class="eyebrow">Projects</span>
+      <h2>Featured Projects</h2>
+      <div class="projects">
+        <article class="project">
+          <span class="project-tag">Geospatial · Simulation</span>
+          <h3>Barangay-Level Flood Simulation using Geospatial Data</h3>
+          <p>A flood simulation built on geospatial data that shows how flooding could spread at the barangay level, so communities can see which areas are most at risk.</p>
+        </article>
+        <article class="project">
+          <span class="project-tag">Fact-checking · Web</span>
+          <h3>MET-Hub</h3>
+          <p>A trusted hub for finding out whether a piece of information is a fact or a fallacy.</p>
+        </article>
+      </div>
+      <a class="gh-btn" href="https://github.com/sleigh-hash" target="_blank" rel="noopener">
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+        See more on my GitHub
+      </a>
+    </div>
+  </section>
+
+  <section class="block" id="certificates">
+    <div class="wrap">
+      <span class="eyebrow">Stamps collected</span>
+      <h2>Certificates</h2>
+      <div class="certs">
+        <article class="stamp">
+          <a class="cert-img" href="certs/english-seminar.jpg" target="_blank" rel="noopener" aria-label="Open the full certificate image">
+            <img src="certs/english-seminar.jpg" alt="Certificate of Completion given to Jonalyn P. Rosell by Biliran Province State University, April 29, 2025">
+          </a>
+          <span class="issuer">Seminar-Workshop · April 29, 2025</span>
+          <h3>Mastering English Foundations, Upholding Academic Integrity, and Advancing Gender-Fair Writing</h3>
+          <p>E-Certificate of Completion · Biliran Province State University, Student Center</p>
+        </article>
+        <article class="stamp">
+          <a class="cert-img" href="certs/ai-literacy.jpg" target="_blank" rel="noopener" aria-label="Open the full certificate image">
+            <img src="certs/ai-literacy.jpg" alt="Certificate of Completion for Introduction to AI Literacy and Responsible Use, given to Jonalyn Rosell">
+          </a>
+          <span class="issuer">Micro-credential · September 14, 2026</span>
+          <h3>Introduction to AI Literacy and Responsible Use</h3>
+          <p>Certificate of Completion · CHED ACHIEVE and Mapúa University</p>
+        </article>
+        <article class="stamp">
+          <a class="cert-img" href="certs/cisco-networking-basics.jpg" target="_blank" rel="noopener" aria-label="Open the full certificate image">
+            <img src="certs/cisco-networking-basics.jpg" alt="Cisco Networking Academy certificate for Networking Basics, awarded to Jonalyn P. Rosell">
+          </a>
+          <span class="issuer">Course · May 19, 2026</span>
+          <h3>Networking Basics</h3>
+          <p>Certificate of Completion · Cisco Networking Academy</p>
+        </article>
+        <article class="stamp">
+          <a class="cert-img" href="certs/cisco-course-completion.jpg" target="_blank" rel="noopener" aria-label="Open the full certificate image">
+            <img src="certs/cisco-course-completion.jpg" alt="Cisco Networking Academy Certificate of Course Completion for Networking Basics, Jonalyn P. Rosell">
+          </a>
+          <span class="issuer">Student credential · May 19, 2026</span>
+          <h3>Networking Basics: Course Completion</h3>
+          <p>Verified student-level credential · Cisco Networking Academy</p>
+        </article>
+      </div>
+    </div>
+  </section>
+</main>
+
+<dialog class="viewer" id="cert-viewer" aria-label="Certificate viewer">
+  <div class="viewer-inner">
+    <img class="viewer-img" id="viewer-img" src="" alt="">
+    <div class="viewer-caption">
+      <span id="viewer-meta"></span>
+      <h3 id="viewer-title"></h3>
+    </div>
+    <div class="viewer-controls">
+      <button class="viewer-btn" id="viewer-prev" type="button">← Previous</button>
+      <span class="viewer-count" id="viewer-count"></span>
+      <button class="viewer-btn" id="viewer-next" type="button">Next →</button>
+      <button class="viewer-btn close" id="viewer-close" type="button">Close</button>
+    </div>
+  </div>
+</dialog>
+
+<script>
+  (function () {
+    const links = Array.from(document.querySelectorAll('.cert-img'));
+    const viewer = document.getElementById('cert-viewer');
+    if (!links.length || !viewer || !viewer.showModal) return;
+    const img = document.getElementById('viewer-img');
+    const meta = document.getElementById('viewer-meta');
+    const title = document.getElementById('viewer-title');
+    const count = document.getElementById('viewer-count');
+    let current = 0;
+
+    function show(i) {
+      current = (i + links.length) % links.length;
+      const link = links[current];
+      const card = link.closest('.stamp');
+      const thumb = link.querySelector('img');
+      img.src = link.getAttribute('href');
+      img.alt = thumb ? thumb.alt : '';
+      meta.textContent = card.querySelector('.issuer')?.textContent || '';
+      title.textContent = card.querySelector('h3')?.textContent || '';
+      count.textContent = (current + 1) + ' / ' + links.length;
+    }
+
+    links.forEach((link, i) => link.addEventListener('click', e => {
+      e.preventDefault();
+      show(i);
+      viewer.showModal();
+    }));
+    document.getElementById('viewer-prev').addEventListener('click', () => show(current - 1));
+    document.getElementById('viewer-next').addEventListener('click', () => show(current + 1));
+    document.getElementById('viewer-close').addEventListener('click', () => viewer.close());
+    // Click on the dark backdrop closes the viewer
+    viewer.addEventListener('click', e => { if (e.target === viewer || e.target.classList.contains('viewer-inner')) viewer.close(); });
+    viewer.addEventListener('keydown', e => {
+      if (e.key === 'ArrowLeft') show(current - 1);
+      if (e.key === 'ArrowRight') show(current + 1);
+    });
+  })();
+</script>
+
+<footer>
+  <div class="wrap">© 2026 Jonalyn Rosell · <a href="https://github.com/sleigh-hash" target="_blank" rel="noopener">github.com/sleigh-hash</a></div>
+</footer>
+</body>
+</html>
